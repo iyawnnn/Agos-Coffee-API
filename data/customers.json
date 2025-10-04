@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "Kris Madlambayan", "email": "kris@gmail.com", "phone": "09170000001" },
+  { "id": 2, "name": "Mikko Pangilinan", "email": "mikko@gmail.com", "phone": "09170000002" },
+  { "id": 3, "name": "Ian Macabulos", "email": "ian@gmail.com", "phone": "09170000003" },
+  { "id": 4, "name": "Aryon Sandique", "email": "aryon@gmail.com", "phone": "09170000004" },
+  { "id": 5, "name": "Kian Angeles", "email": "kian@gmail.com", "phone": "09170000005" },
+  { "id": 6, "name": "Wilson Yaochingo", "email": "wilson@gmail.com", "phone": "09170000006" }
+]

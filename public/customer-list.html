@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/png" href="assets/logo/AGOS-FAVICON.svg" />
+    <title>Customer List - Agos Coffee</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mediaquery.css" />
+    <style>
+      .customer-container {
+        max-width: 900px;
+        margin: 3rem auto;
+        padding: 1.5rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .customer-container h2 {
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      .search-box {
+        margin-bottom: 1rem;
+        text-align: right;
+      }
+      .search-box input {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 250px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+      th,
+      td {
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+      th {
+        background: #f8f8f8;
+      }
+      tr:hover {
+        background: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body class="customer-page">
+    <!-- HEADER / NAVBAR -->
+    <header class="site-header">
+      <div class="header-left">
+        <button
+          id="hamburger-toggle"
+          class="hamburger-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="sidebar-menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <a href="product-list.html" class="order-btn">Order Now</a>
+      </div>
+
+      <div class="header-center">
+        <nav class="main-nav left-nav">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product-list.html">Products</a></li>
+            <li><a href="feature.html">Feature</a></li>
+          </ul>
+        </nav>
+
+        <a href="index.html" class="logo-link">
+          <img
+            src="assets/logo/AGOS-LOGO.svg"
+            alt="Agos Coffee logo"
+            class="logo"
+          />
+        </a>
+
+        <nav class="main-nav right-nav">
+          <ul class="nav-list">
+            <li><a href="customer-list.html" class="active">Customers</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <a
+          href="product-list.html#cartPanel"
+          class="cart-btn"
+          aria-label="Open cart"
+        >
+          <img src="assets/icons/CART-QTY.svg" alt="Cart" class="cart-img" />
+          <span id="cart-count" class="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- SIDEBAR MENU (mobile) -->
+    <aside id="sidebar-menu" class="sidebar-menu" aria-hidden="true">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo-link sidebar-logo-link">
+          <img
+            src="assets/logo/AGOS-LOGO.svg"
+            alt="Agos Coffee logo"
+            class="logo sidebar-logo"
+          />
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <ul class="nav-list sidebar-nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product-list.html">Products</a></li>
+          <li><a href="feature.html">Feature</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="customer-list.html" class="active">Customers</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li>
+            <a
+              href="product-list.html"
+              class="order-btn-mobile sidebar-order-btn"
+              >Order Now</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="customer-container">
+      <h2>Customer List</h2>
+      <div class="search-box">
+        <input
+          type="search"
+          id="customerSearch"
+          placeholder="Search customers..."
+        />
+      </div>
+      <table id="customerTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+
+    <script src="js/hamburger-menu.js"></script>
+    <script>
+      async function fetchCustomers(query = "") {
+        try {
+          const res = await fetch("/api/customers");
+          let customers = await res.json();
+
+          if (query) {
+            query = query.toLowerCase();
+            customers = customers.filter(
+              (c) =>
+                c.name.toLowerCase().includes(query) ||
+                c.email.toLowerCase().includes(query) ||
+                c.phone.includes(query)
+            );
+          }
+
+          const tbody = document.querySelector("#customerTable tbody");
+          tbody.innerHTML = "";
+
+          if (customers.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="4" style="text-align:center">No customers found</td></tr>`;
+            return;
+          }
+
+          customers.forEach((c) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+            <td>${c.id}</td>
+            <td>${c.name}</td>
+            <td>${c.email}</td>
+            <td>${c.phone}</td>
+          `;
+            tbody.appendChild(row);
+          });
+        } catch (err) {
+          console.error("Error fetching customers:", err);
+        }
+      }
+
+      fetchCustomers();
+      document
+        .getElementById("customerSearch")
+        .addEventListener("input", (e) => {
+          fetchCustomers(e.target.value);
+        });
+    </script>
+  </body>
+</html>

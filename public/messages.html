@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Messages - Agos Coffee</title>
+    <link rel="icon" type="image/png" href="assets/logo/AGOS-FAVICON.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mediaquery.css" />
+    <style>
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #222;
+      }
+
+      .messages-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+      }
+
+      tr:hover {
+        background-color: #f9f9f9;
+      }
+
+      .no-data {
+        text-align: center;
+        color: #777;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER / NAVBAR -->
+    <header class="site-header">
+      <div class="header-left">
+        <button
+          id="hamburger-toggle"
+          class="hamburger-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="sidebar-menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <a href="product-list.html" class="order-btn">Order Now</a>
+      </div>
+
+      <div class="header-center">
+        <nav class="main-nav left-nav">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product-list.html">Products</a></li>
+            <li><a href="feature.html">Feature</a></li>
+          </ul>
+        </nav>
+
+        <a href="index.html" class="logo-link">
+          <img
+            src="assets/logo/AGOS-LOGO.svg"
+            alt="Agos Coffee logo"
+            class="logo"
+          />
+        </a>
+
+        <nav class="main-nav right-nav">
+          <ul class="nav-list">
+            <li><a href="customer-list.html" class="active">Customers</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <a
+          href="product-list.html#cartPanel"
+          class="cart-btn"
+          aria-label="Open cart"
+        >
+          <img src="assets/icons/CART-QTY.svg" alt="Cart" class="cart-img" />
+          <span id="cart-count" class="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- SIDEBAR MENU (mobile) -->
+    <aside id="sidebar-menu" class="sidebar-menu" aria-hidden="true">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo-link sidebar-logo-link">
+          <img
+            src="assets/logo/AGOS-LOGO.svg"
+            alt="Agos Coffee logo"
+            class="logo sidebar-logo"
+          />
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <ul class="nav-list sidebar-nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product-list.html">Products</a></li>
+          <li><a href="feature.html">Feature</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="customer-list.html" class="active">Customers</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li>
+            <a
+              href="product-list.html"
+              class="order-btn-mobile sidebar-order-btn"
+              >Order Now</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+    <h1>Customer Messages</h1>
+    <div class="messages-container">
+      <div class="search-box">
+        <input
+          type="search"
+          id="messageSearch"
+          placeholder="Search messages..."
+        />
+      </div>
+
+      <table id="messagesTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="messagesBody">
+          <tr>
+            <td colspan="5" class="no-data">Loading messages...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      let allMessages = [];
+
+      async function loadMessages(query = "") {
+        try {
+          if (allMessages.length === 0) {
+            const res = await fetch("/api/messages");
+            allMessages = await res.json();
+          }
+
+          let filtered = allMessages;
+          if (query) {
+            query = query.toLowerCase();
+            filtered = allMessages.filter(
+              (msg) =>
+                msg.name.toLowerCase().includes(query) ||
+                msg.email.toLowerCase().includes(query) ||
+                msg.message.toLowerCase().includes(query) ||
+                msg.date.includes(query)
+            );
+          }
+
+          const tbody = document.getElementById("messagesBody");
+          if (filtered.length === 0) {
+            tbody.innerHTML =
+              '<tr><td colspan="5" class="no-data">No messages found</td></tr>';
+            return;
+          }
+
+          tbody.innerHTML = filtered
+            .map(
+              (msg) => `
+          <tr>
+            <td>${msg.id}</td>
+            <td>${msg.name}</td>
+            <td>${msg.email}</td>
+            <td>${msg.message}</td>
+            <td>${msg.date}</td>
+          </tr>
+        `
+            )
+            .join("");
+        } catch (err) {
+          console.error("Error loading messages:", err);
+          document.getElementById("messagesBody").innerHTML =
+            '<tr><td colspan="5" class="no-data">Failed to load messages</td></tr>';
+        }
+      }
+
+      // Initial load
+      loadMessages();
+
+      // Search handler
+      document
+        .getElementById("messageSearch")
+        .addEventListener("input", (e) => {
+          loadMessages(e.target.value);
+        });
+    </script>
+  </body>
+</html>

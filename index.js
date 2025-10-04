@@ -42,6 +42,43 @@ app.get("/api/products", (req, res) => {
   });
 });
 
+// GET /api/customers
+app.get("/api/customers", (req, res) => {
+  const filePath = path.join(__dirname, "data", "customers.json");
+  fs.readFile(filePath, "utf8", (err, data) => {
+    if (err) {
+      console.error("Failed to read customers.json:", err);
+      return res.status(500).json({ error: "Failed to load customers" });
+    }
+    try {
+      const customers = JSON.parse(data);
+      res.json(customers);
+    } catch (parseErr) {
+      console.error("Invalid JSON in customers.json:", parseErr);
+      res.status(500).json({ error: "Invalid customers file" });
+    }
+  });
+});
+
+// GET /api/messages
+app.get("/api/messages", (req, res) => {
+  const filePath = path.join(__dirname, "data", "messages.json");
+  fs.readFile(filePath, "utf8", (err, data) => {
+    if (err) {
+      console.error("Failed to read messages.json:", err);
+      return res.status(500).json({ error: "Failed to load messages" });
+    }
+    try {
+      const messages = JSON.parse(data);
+      res.json(messages);
+    } catch (parseErr) {
+      console.error("Invalid JSON in messages.json:", parseErr);
+      res.status(500).json({ error: "Invalid messages file" });
+    }
+  });
+});
+
+
 // Route root (/) → index.html
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Kris Madlambayan",
+    "email": "kris@gmail.com",
+    "message": "Hi, I'd like to know more about your products.",
+    "date": "2025-10-05"
+  },
+  {
+    "id": 2,
+    "name": "Mikko Pangilinan",
+    "email": "mikko@gmail.com",
+    "message": "Can you confirm my recent order?",
+    "date": "2025-10-04"
+  },
+  {
+    "id": 3,
+    "name": "Ian Macabulos",
+    "email": "ian@gmail.com",
+    "message": "Do you have seasonal coffee blends?",
+    "date": "2025-10-03"
+  },
+  {
+    "id": 4,
+    "name": "Aryon Sandique",
+    "email": "aryon@gmail.com",
+    "message": "Great service! I'll recommend this to my friends.",
+    "date": "2025-10-02"
+  },
+  {
+    "id": 5,
+    "name": "Kian Angeles",
+    "email": "kian@gmail.com",
+    "message": "Do you offer delivery outside the city?",
+    "date": "2025-10-01"
+  },
+  {
+    "id": 6,
+    "name": "Wilson Yaochingo",
+    "email": "wilson@gmail.com",
+    "message": "Thanks for the quick response to my last inquiry!",
+    "date": "2025-09-30"
+  }
+]
