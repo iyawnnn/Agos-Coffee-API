@@ -1,0 +1,177 @@
+[
+  {
+    "name": "Agos Signature",
+    "price": 150,
+    "category": "Popular",
+    "img": "assets/products/AGOS-SPECIALTY.svg",
+    "desc": "Espresso + Oatside + Condensed + Cocoa"
+  },
+  {
+    "name": "Spanish Latte",
+    "price": 140,
+    "category": "Popular",
+    "img": "assets/products/SPANISH-LATTE.svg",
+    "desc": "Espresso + Condensed + Milk + Cinnamon"
+  },
+  {
+    "name": "Matcha Oatside",
+    "price": 160,
+    "category": "Popular",
+    "img": "assets/products/MATCHA-OATSIDE.svg",
+    "desc": "Matcha + Oatside"
+  },
+  {
+    "name": "Pink Quencher",
+    "price": 130,
+    "category": "Popular",
+    "img": "assets/products/PINK-QUENCHER.svg",
+    "desc": "Strawberry + Lychee"
+  },
+  {
+    "name": "Matcha Sea Salt",
+    "price": 170,
+    "category": "Popular",
+    "img": "assets/products/MATCHA-SEA-SALT.svg",
+    "desc": "Matcha + Milk + Sea Salt Cream"
+  },
+  {
+    "name": "Dirty White",
+    "price": 150,
+    "category": "Popular",
+    "img": "assets/products/DIRTY-WHITE.svg",
+    "desc": "Espresso + Condensed + Milk + Caramel"
+  },
+  {
+    "name": "Agos Signature",
+    "price": 150,
+    "category": "Specialty",
+    "img": "assets/products/AGOS-SPECIALTY.svg",
+    "desc": "Espresso + Oatside + Condensed + Cocoa"
+  },
+  {
+    "name": "Iced Mango Oatside",
+    "price": 145,
+    "category": "Specialty",
+    "img": "assets/products/ICED-MANGO-OATSIDE.svg",
+    "desc": "Mango Purée + Oatside"
+  },
+  {
+    "name": "Cookie Butter",
+    "price": 190,
+    "category": "Specialty",
+    "img": "assets/products/COOKIE-BUTTER.svg",
+    "desc": "Espresso + Oatside + Biscoff"
+  },
+  {
+    "name": "Sea Salt Latte",
+    "price": 150,
+    "category": "Specialty",
+    "img": "assets/products/SEA-SALT-LATTER.svg",
+    "desc": "Espresso + Milk + Sea Salt Cream"
+  },
+  {
+    "name": "Americano",
+    "price": 105,
+    "category": "Coffee",
+    "img": "assets/products/AMERICANO.svg",
+    "desc": "Espresso + Water"
+  },
+  {
+    "name": "Spanish Latte",
+    "price": 140,
+    "category": "Coffee",
+    "img": "assets/products/SPANISH-LATTE.svg",
+    "desc": "Espresso + Condensed + Milk + Cinnamon"
+  },
+  {
+    "name": "Dirty White",
+    "price": 150,
+    "category": "Coffee",
+    "img": "assets/products/DIRTY-WHITE.svg",
+    "desc": "Espresso + Condensed + Milk + Caramel"
+  },
+  {
+    "name": "Cafe Latte",
+    "price": 130,
+    "category": "Coffee",
+    "img": "assets/products/CAFE-LATTE.svg",
+    "desc": "Espresso + Milk"
+  },
+  {
+    "name": "Mocha",
+    "price": 185,
+    "category": "Coffee",
+    "img": "assets/products/MOCHA.svg",
+    "desc": "Espresso + Milk + Cocoa"
+  },
+  {
+    "name": "Caramel Macchiato",
+    "price": 180,
+    "category": "Coffee",
+    "img": "assets/products/CARAMEL-MACCHIATO.svg",
+    "desc": "Espresso + Milk + Caramel"
+  },
+  {
+    "name": "Strawberry Latte",
+    "price": 120,
+    "category": "Non-Coffee",
+    "img": "assets/products/STRAWBERRY-LATTE.svg",
+    "desc": "Strawberry Puree + Milk"
+  },
+  {
+    "name": "Cocoa Latte",
+    "price": 135,
+    "category": "Non-Coffee",
+    "img": "assets/products/COCOA-LATTE.svg",
+    "desc": "Cocoa + Milk"
+  },
+  {
+    "name": "Green Apple Fizz",
+    "price": 115,
+    "category": "Non-Coffee",
+    "img": "assets/products/GREEN-APPLE-FIZZ.svg",
+    "desc": "Green Apple + Lime Soda"
+  },
+  {
+    "name": "Batirol Oatside",
+    "price": 200,
+    "category": "Non-Coffee",
+    "img": "assets/products/BATIROL-OATSIDE.svg",
+    "desc": "Batirol + Oatside"
+  },
+  {
+    "name": "Matcha Oatside",
+    "price": 160,
+    "category": "Matcha",
+    "img": "assets/products/MATCHA-OATSIDE.svg",
+    "desc": "Matcha + Oatside"
+  },
+  {
+    "name": "Matcha Sea Salt",
+    "price": 170,
+    "category": "Matcha",
+    "img": "assets/products/MATCHA-SEA-SALT.svg",
+    "desc": "Matcha + Milk + Sea Salt Cream"
+  },
+  {
+    "name": "Matcha Lime Soda",
+    "price": 140,
+    "category": "Matcha",
+    "img": "assets/products/MATCHA-LIME-SODA.svg",
+    "desc": "Matcha + Lime Soda"
+  },
+  {
+    "name": "Strawberry Matcha",
+    "price": 185,
+    "category": "Matcha",
+    "img": "assets/products/STRAWBERRY-MATCHA.svg",
+    "desc": "Matcha + Strawberry Puree + Milk"
+  },
+  {
+    "name": "Dirty Matcha",
+    "price": 210,
+    "category": "Matcha",
+    "img": "assets/products/DIRTY-MATCHA.svg",
+    "desc": "Espresso + Matcha + Milk"
+  }
+]
