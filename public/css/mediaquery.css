@@ -131,7 +131,6 @@
   }
 }
 
-/* Tablets (<=1024px) */
 @media (max-width: 1150px) {
   .hamburger-btn {
     display: flex;
@@ -173,7 +172,10 @@
     max-width: 80px;
     justify-content: center;
   }
+}
 
+/* Tablets (<=1024px) */
+@media (max-width: 1024px) {
   .hero-section {
     flex-direction: column;
     padding: 40px 50px;
@@ -470,6 +472,33 @@
     font-size: clamp(0.85rem, 2.5vw, 0.95rem);
     padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 20px);
   }
+
+  .messages-container {
+    padding: 1rem 1.5rem 2rem;
+  }
+
+  .messages-title {
+    font-size: 1.75rem;
+    max-width: 60%;
+  }
+
+  .messages-table-wrapper {
+    overflow-x: auto; /* allow horizontal scroll */
+  }
+
+  .messages-table {
+    min-width: 700px; /* table keeps a minimum width */
+  }
+
+  .messages-table th,
+  .messages-table td {
+    padding: 0.9rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .message-name-text {
+    font-size: 0.75rem;
+  }
 }
 
 @media (max-width: 992px) {
@@ -746,6 +775,68 @@
   }
   .infographics-image {
     max-width: 600px;
+  }
+
+  /* Stack header elements */
+  .messages-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  .messages-title {
+    width: 100%;
+    font-size: 1.6rem;
+  }
+
+  /* Search bar full width */
+  .messages-search-wrapper {
+    width: 100%;
+  }
+
+  /* Fix the container so scroll works properly */
+  .messages-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Make the table scrollable */
+  .messages-table-wrapper {
+    overflow-x: auto !important;
+    overflow-y: visible !important; /* override overflow:hidden */
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .messages-section {
+  overflow: visible !important;
+}
+
+  /* Prevent table from collapsing and allow scroll */
+  .messages-table {
+    display: block;
+    min-width: 700px;
+    width: max-content; /* make it wider than viewport */
+    border-collapse: collapse;
+  }
+
+  .messages-table th,
+  .messages-table td {
+    padding: 0.8rem 0.8rem;
+    font-size: 0.88rem;
+  }
+
+  .message-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .message-name-text {
+    font-size: 0.85rem !important;
   }
 }
 
@@ -1098,10 +1189,27 @@
   .infographics-image-wrapper {
     margin: 30px 0;
   }
-  
+
   .infographics-image {
     max-width: 100%;
     border-width: 2px;
+  }
+
+  .messages-title {
+    font-size: 1.4rem;
+  }
+
+  .messages-table {
+    min-width: 600px;
+  }
+
+  .messages-table th,
+  .messages-table td {
+    font-size: 0.83rem;
+  }
+
+  .message-name-text {
+    font-size: 0.8rem !important;
   }
 }
 

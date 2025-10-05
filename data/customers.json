@@ -1,8 +1,50 @@
 [
-  { "id": 1, "name": "Kris Madlambayan", "email": "kris@gmail.com", "phone": "09170000001" },
-  { "id": 2, "name": "Mikko Pangilinan", "email": "mikko@gmail.com", "phone": "09170000002" },
-  { "id": 3, "name": "Ian Macabulos", "email": "ian@gmail.com", "phone": "09170000003" },
-  { "id": 4, "name": "Aryon Sandique", "email": "aryon@gmail.com", "phone": "09170000004" },
-  { "id": 5, "name": "Kian Angeles", "email": "kian@gmail.com", "phone": "09170000005" },
-  { "id": 6, "name": "Wilson Yaochingo", "email": "wilson@gmail.com", "phone": "09170000006" }
+  {
+    "id": 1,
+    "name": "Kris Madlambayan",
+    "email": "kris@gmail.com",
+    "phone": "09170000001",
+    "status": "Active",
+    "image": "assets/profile/kris.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Mikko Pangilinan",
+    "email": "mikko@gmail.com",
+    "phone": "09170000002",
+    "status": "Active",
+    "image": "assets/profile/mikko.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Ian Macabulos",
+    "email": "ian@gmail.com",
+    "phone": "09170000003",
+    "status": "Active",
+    "image": "assets/profile/ian.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "Aryon Sandique",
+    "email": "aryon@gmail.com",
+    "phone": "09170000004",
+    "status": "Inactive",
+    "image": "assets/profile/aryon.webp"
+  },
+  {
+    "id": 5,
+    "name": "Kian Angeles",
+    "email": "kian@gmail.com",
+    "phone": "09170000005",
+    "status": "Active",
+    "image": "assets/profile/kian.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Wilson Yaochingo",
+    "email": "wilson@gmail.com",
+    "phone": "09170000006",
+    "status": "Pending",
+    "image": "assets/profile/yao.jpg"
+  }
 ]

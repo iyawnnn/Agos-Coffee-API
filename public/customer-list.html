@@ -7,6 +7,10 @@
     <title>Customer List - Agos Coffee</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/mediaquery.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body class="customer-page">
     <!-- HEADER / NAVBAR -->
@@ -98,28 +102,121 @@
 
     <!-- MAIN CONTENT -->
     <main class="customer-container">
-      <h2>Customer List</h2>
-      <div class="search-box">
-        <input
-          type="search"
-          id="customerSearch"
-          placeholder="Search customers..."
-        />
+      <div class="customer-header">
+        <h2 class="customer-title">Customer List</h2>
+        <div class="customer-search">
+          <i class="fas fa-search"></i>
+          <input
+            type="search"
+            id="customerSearch"
+            placeholder="Search customers..."
+          />
+        </div>
       </div>
-      <table id="customerTable">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+
+      <div class="customer-table-wrapper">
+        <table id="customerTable" class="customer-table">
+          <thead>
+            <tr>
+              <th class="name-header">Name</th>
+              <th class="status-header">Email</th>
+              <th class="status-header">Phone</th>
+              <th class="status-header">Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </main>
 
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- LEFT SIDE LINKS -->
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Order Online</h4>
+            <ul>
+              <li><a href="product-list.html#specialty">Specialty</a></li>
+              <li><a href="product-list.html#coffee">Coffee</a></li>
+              <li><a href="product-list.html#non-coffee">Non-Coffee</a></li>
+              <li><a href="product-list.html#matcha">Matcha</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Feature</h4>
+            <ul>
+              <li>
+                <a href="index.html#customer-favorites">Customer Favorites</a>
+              </li>
+              <li><a href="feature.html#new-product">New Product</a></li>
+              <li><a href="feature.html#featured-items">Featured Items</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="index.html#faq">FAQs</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="#">Phone: 0947-191-8437</a></li>
+              <li><a href="#">Mon-Sun: 10 AM - 11 PM</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Get to Know Us</h4>
+            <ul>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="index.html#brew-guides">Brew Guides</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- NEWSLETTER -->
+        <div class="footer-newsletter">
+          <h4>Sign up for email updates</h4>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your Email" required />
+            <button type="submit">Submit</button>
+          </form>
+          <div class="footer-socials">
+            <a
+              href="https://www.facebook.com/profile.php?id=61550342585463"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.instagram.com/agoscoffee____/" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com/@agos.coffee" target="_blanks"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter Modal -->
+      <div id="newsletterModal" class="modal">
+        <div class="modal-content">
+          <h3>Thank You!</h3>
+          <p>You've successfully signed up for our newsletter.</p>
+          <div class="modal-actions">
+            <button class="btn cancel-btn" id="closeNewsletter">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Agos Coffee. All Rights Reserved.</p>
+      </div>
+    </footer>
+
     <script src="js/hamburger-menu.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/newsletter-and-cart.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/checkout.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/events.js" defer></script>
     <script>
       async function fetchCustomers(query = "") {
         try {
@@ -147,11 +244,18 @@
           customers.forEach((c) => {
             const row = document.createElement("tr");
             row.innerHTML = `
-            <td>${c.id}</td>
-            <td>${c.name}</td>
-            <td>${c.email}</td>
-            <td>${c.phone}</td>
-          `;
+  <td class="customer-name-cell">
+    <div class="customer-info">
+      <img src="${c.image}" alt="${c.name}" class="customer-avatar" />
+      <span>${c.name}</span>
+    </div>
+  </td>
+  <td>${c.email}</td>
+  <td>${c.phone}</td>
+  <td class="status-cell">
+    <span class="status ${c.status.toLowerCase()}">${c.status}</span>
+  </td>
+`;
             tbody.appendChild(row);
           });
         } catch (err) {

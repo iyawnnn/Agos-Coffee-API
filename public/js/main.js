@@ -1,26 +1,49 @@
-// main.js
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize Swiper
-  if (typeof Swiper !== "undefined") {
-    new Swiper(".menuSwiper", {
-      slidesPerView: 4,
-      slidesPerGroup: 1,
-      spaceBetween: 20,
-      loop: false,
-      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-      pagination: { el: ".swiper-pagination", clickable: true },
-      breakpoints: { 1024: { slidesPerView: 4 }, 768: { slidesPerView: 3 }, 480: { slidesPerView: 2 }, 0: { slidesPerView: 1 } },
+  // --- Testimonials Slider ---
+  const slides = document.querySelectorAll(".testimonial-slide");
+  const prevBtn = document.querySelector(".testimonial-arrow.left");
+  const nextBtn = document.querySelector(".testimonial-arrow.right");
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? "flex" : "none";
     });
   }
 
-  // Newsletter Modal
+  showSlide(currentIndex);
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }, 5000);
+
+  // --- Newsletter Modal (keep existing) ---
   const form = document.querySelector(".newsletter-form");
   const modal = document.getElementById("newsletterModal");
   const closeBtn = document.getElementById("closeNewsletter");
 
   if (form && modal && closeBtn) {
-    form.addEventListener("submit", e => { e.preventDefault(); modal.style.display = "flex"; form.reset(); });
-    closeBtn.addEventListener("click", () => { modal.style.display = "none"; });
-    modal.addEventListener("click", e => { if (e.target === modal) modal.style.display = "none"; });
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      modal.style.display = "flex";
+      form.reset();
+    });
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    });
   }
 });

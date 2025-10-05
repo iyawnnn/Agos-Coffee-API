@@ -6,6 +6,7 @@ const fs = require("fs");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
 // Serve static frontend from /public
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -13,7 +14,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/api/products", (req, res) => {
   const search = (req.query.search || "").toLowerCase();
 
-  // ✅ Correct path to products.json
+  // Correct path to products.json
   const filePath = path.join(__dirname, "data", "products.json");
 
   fs.readFile(filePath, "utf8", (err, data) => {
@@ -83,6 +84,9 @@ app.get("/api/messages", (req, res) => {
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
+app.use(express.static("public"));
+
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

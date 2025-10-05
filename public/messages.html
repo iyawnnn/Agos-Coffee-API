@@ -2,57 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Customer Messages - Agos Coffee</title>
     <link rel="icon" type="image/png" href="assets/logo/AGOS-FAVICON.svg" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/mediaquery.css" />
-    <style>
-      h1 {
-        text-align: center;
-        margin-bottom: 2rem;
-        color: #222;
-      }
-
-      .messages-container {
-        max-width: 900px;
-        margin: 0 auto;
-        background: #fff;
-        padding: 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 1rem;
-      }
-
-      th,
-      td {
-        padding: 12px 15px;
-        border-bottom: 1px solid #ddd;
-        text-align: left;
-      }
-
-      th {
-        background-color: #f4f4f4;
-        font-weight: bold;
-      }
-
-      tr:hover {
-        background-color: #f9f9f9;
-      }
-
-      .no-data {
-        text-align: center;
-        color: #777;
-        margin-top: 2rem;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
-  <body>
+  <body class="customer-page">
     <!-- HEADER / NAVBAR -->
     <header class="site-header">
       <div class="header-left">
@@ -140,33 +100,130 @@
 
     <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
 
-    <h1>Customer Messages</h1>
-    <div class="messages-container">
-      <div class="search-box">
-        <input
-          type="search"
-          id="messageSearch"
-          placeholder="Search messages..."
-        />
+    <!-- MAIN CONTENT -->
+    <main class="messages-container">
+      <div class="messages-header">
+        <h2 class="messages-title">Customer Messages</h2>
+        <div class="messages-search-wrapper">
+          <i class="fas fa-search"></i>
+          <input
+            type="search"
+            id="messageSearch"
+            class="messages-search-input"
+            placeholder="Search messages..."
+          />
+        </div>
       </div>
 
-      <table id="messagesTable">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Message</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody id="messagesBody">
-          <tr>
-            <td colspan="5" class="no-data">Loading messages...</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <div class="messages-table-wrapper">
+        <table id="messagesTable" class="messages-table">
+          <thead class="messages-table-head">
+            <tr>
+              <th class="messages-col-name">Name</th>
+              <th class="messages-col-email">Email</th>
+              <th class="messages-col-message">Message</th>
+              <th class="messages-col-date">Date</th>
+            </tr>
+          </thead>
+          <tbody id="messagesBody" class="messages-table-body">
+            <tr>
+              <td colspan="4" class="no-data">Loading messages...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- LEFT SIDE LINKS -->
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Order Online</h4>
+            <ul>
+              <li><a href="product-list.html#specialty">Specialty</a></li>
+              <li><a href="product-list.html#coffee">Coffee</a></li>
+              <li><a href="product-list.html#non-coffee">Non-Coffee</a></li>
+              <li><a href="product-list.html#matcha">Matcha</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Feature</h4>
+            <ul>
+              <li>
+                <a href="index.html#customer-favorites">Customer Favorites</a>
+              </li>
+              <li><a href="feature.html#new-product">New Product</a></li>
+              <li><a href="feature.html#featured-items">Featured Items</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="index.html#faq">FAQs</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="#">Phone: 0947-191-8437</a></li>
+              <li><a href="#">Mon-Sun: 10 AM - 11 PM</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Get to Know Us</h4>
+            <ul>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="index.html#brew-guides">Brew Guides</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- NEWSLETTER -->
+        <div class="footer-newsletter">
+          <h4>Sign up for email updates</h4>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your Email" required />
+            <button type="submit">Submit</button>
+          </form>
+          <div class="footer-socials">
+            <a
+              href="https://www.facebook.com/profile.php?id=61550342585463"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.instagram.com/agoscoffee____/" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com/@agos.coffee" target="_blanks"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter Modal -->
+      <div id="newsletterModal" class="modal">
+        <div class="modal-content">
+          <h3>Thank You!</h3>
+          <p>You've successfully signed up for our newsletter.</p>
+          <div class="modal-actions">
+            <button class="btn cancel-btn" id="closeNewsletter">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Agos Coffee. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/hamburger-menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/newsletter-and-cart.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/events.js" defer></script>
+    <script src="js/checkout.js" defer></script>
 
     <script>
       let allMessages = [];
@@ -193,27 +250,31 @@
           const tbody = document.getElementById("messagesBody");
           if (filtered.length === 0) {
             tbody.innerHTML =
-              '<tr><td colspan="5" class="no-data">No messages found</td></tr>';
+              '<tr><td colspan="4" class="no-data">No messages found</td></tr>';
             return;
           }
 
           tbody.innerHTML = filtered
             .map(
               (msg) => `
-          <tr>
-            <td>${msg.id}</td>
-            <td>${msg.name}</td>
-            <td>${msg.email}</td>
-            <td>${msg.message}</td>
-            <td>${msg.date}</td>
-          </tr>
-        `
+        <tr class="messages-row">
+          <td class="messages-col-name">
+            <div class="message-info">
+              <img src="${msg.image}" alt="${msg.name}" class="message-avatar"/>
+              <span class="message-name-text">${msg.name}</span>
+            </div>
+          </td>
+          <td class="messages-col-email">${msg.email}</td>
+          <td class="messages-col-message">${msg.message}</td>
+          <td class="messages-col-date">${msg.date}</td>
+        </tr>
+      `
             )
             .join("");
         } catch (err) {
           console.error("Error loading messages:", err);
           document.getElementById("messagesBody").innerHTML =
-            '<tr><td colspan="5" class="no-data">Failed to load messages</td></tr>';
+            '<tr><td colspan="4" class="no-data">Failed to load messages</td></tr>';
         }
       }
 
