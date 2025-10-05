@@ -1,4 +1,4 @@
-// events.js
+// CART BUTTON HANDLER
 document.addEventListener("click", (e) => {
   const btn = e.target.closest(".add-btn");
   if (!btn) return;
@@ -17,4 +17,25 @@ document.addEventListener("click", (e) => {
     ],
     { duration: 180, easing: "ease-out" }
   );
+});
+
+// FAQ TOGGLE HANDLER
+document.addEventListener("DOMContentLoaded", () => {
+  const faqQuestions = document.querySelectorAll(".faq-question");
+
+  faqQuestions.forEach((question) => {
+    question.addEventListener("click", () => {
+      const answer = question.nextElementSibling;
+
+      // Toggle active class for color or arrow animation
+      question.classList.toggle("active");
+
+      // Expand/collapse with smooth animation
+      if (answer.style.maxHeight) {
+        answer.style.maxHeight = null;
+      } else {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
 });
