@@ -114,17 +114,7 @@
         <div class="contact-image"></div>
 
         <div class="contact-form-wrapper">
-          <form
-            action="https://api.web3forms.com/submit"
-            method="POST"
-            class="form-control"
-          >
-            <input
-              type="hidden"
-              name="access_key"
-              value="aae1092f-cdba-4886-9a47-b4353142b43a"
-            />
-
+          <form id="contactForm" class="form-control">
             <h2 class="contact-form-title">Contact Us</h2>
 
             <div class="input-field">
@@ -149,6 +139,24 @@
                 required
               ></textarea>
               <label class="label">Message</label>
+            </div>
+
+            <!-- Marketing channel selection -->
+            <!-- Marketing channel selection -->
+            <div class="input-field">
+              <label class="label-platform">Choose Platform</label>
+
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="platform" value="email" required />
+                  <span>Email Marketing</span>
+                </label>
+
+                <label class="radio-option">
+                  <input type="radio" name="platform" value="social" required />
+                  <span>Social Media Marketing</span>
+                </label>
+              </div>
             </div>
 
             <button type="submit" class="submit-btn">SEND MESSAGE</button>
@@ -257,5 +265,27 @@
     <script src="js/search.js" defer></script>
     <script src="js/events.js" defer></script>
     <script src="js/checkout.js" defer></script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get the selected radio button value
+          const platform = document.querySelector(
+            'input[name="platform"]:checked'
+          );
+
+          if (platform) {
+            if (platform.value === "email") {
+              window.location.href = "email-mockup.html";
+            } else if (platform.value === "social") {
+              window.location.href = "social-mockup.html";
+            }
+          } else {
+            alert("Please select a platform.");
+          }
+        });
+    </script>
   </body>
 </html>

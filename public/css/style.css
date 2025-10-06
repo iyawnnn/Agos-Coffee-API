@@ -3186,3 +3186,28 @@ body.customer-page {
     font-size: 0.9rem;
   }
 }
+
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  accent-color: var(--primary); 
+  width: 20px;
+  height: 20px;
+}
+
+.radio-option span {
+  font-size: 0.95rem;
+  color: #000;
+}

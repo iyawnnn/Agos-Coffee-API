@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Social Media Mockup - Agos Coffee</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap; /* responsive layout */
+      gap: 2rem;
+    }
+
+    .mockup-img {
+      width: 320px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background-color: white;
+    }
+
+    .mockup-img:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+    }
+
+    @media (max-width: 900px) {
+      body {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .mockup-img {
+        width: 90%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="assets/facebook.svg" alt="Facebook Mockup" class="mockup-img" />
+  <img src="assets/instagram.svg" alt="Instagram Mockup" class="mockup-img" />
+  <img src="assets/tiktok.svg" alt="TikTok Mockup" class="mockup-img" />
+</body>
+</html>
