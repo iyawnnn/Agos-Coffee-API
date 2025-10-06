@@ -257,18 +257,18 @@
           tbody.innerHTML = filtered
             .map(
               (msg) => `
-        <tr class="messages-row">
-          <td class="messages-col-name">
-            <div class="message-info">
-              <img src="${msg.image}" alt="${msg.name}" class="message-avatar"/>
-              <span class="message-name-text">${msg.name}</span>
-            </div>
-          </td>
-          <td class="messages-col-email">${msg.email}</td>
-          <td class="messages-col-message">${msg.message}</td>
-          <td class="messages-col-date">${msg.date}</td>
-        </tr>
-      `
+    <tr class="messages-row">
+      <td class="messages-col-name">
+        <div class="message-info">
+          <img src="${msg.image}" alt="${msg.name}" class="message-avatar"/>
+          <span class="message-name-text">${msg.name}</span>
+        </div>
+      </td>
+      <td class="messages-col-email">${msg.email}</td>
+      <td class="messages-col-message" >${msg.message}</td>
+      <td class="messages-col-date">${msg.date}</td>
+    </tr>
+  `
             )
             .join("");
         } catch (err) {

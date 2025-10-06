@@ -2546,17 +2546,9 @@ section[id="brew-guides"] {
 }
 
 /* =========================
-   CUSTOMER LIST - MODERN POLISHED STYLE
+   CUSTOMER LIST - POLISHED RESPONSIVE STYLE
+   Consistent with Messages Page
 ========================= */
-.customer-table th.status-header,
-.customer-table td.status-cell {
-  width: 175px;
-}
-/* Wider name column */
-.customer-table th.name-header,
-.customer-table td.name-cell {
-  width: 225px;
-}
 
 .customer-container {
   max-width: 1000px;
@@ -2565,39 +2557,36 @@ section[id="brew-guides"] {
   font-family: "Poppins", sans-serif;
 }
 
+/* HEADER AREA */
 .customer-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
   gap: 1rem;
-  margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
 }
 
-/* Title */
 .customer-title {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.025px;
   background: linear-gradient(90deg, var(--primary-dark), var(--primary));
   margin: 0;
-  flex: 0 1 auto;
-  min-width: 150px;
-  max-width: 70%;
+  flex: 1;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-top:1rem;
 }
 
+/* SEARCH BAR */
 .customer-search {
   position: relative;
-  width: 280px;
+  width: 320px;
   max-width: 100%;
   border-radius: 50px;
   padding: 0.5rem 1rem 0.5rem 3rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border: 0.3px solid #999;
+  border: 0.5px solid rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   flex-shrink: 0;
   background: #fff;
@@ -2609,8 +2598,7 @@ section[id="brew-guides"] {
   left: 1rem;
   transform: translateY(-50%);
   font-size: 1.1rem;
-  color: #000;
-  pointer-events: none;
+  color: var(--text-dark);
   opacity: 0.85;
   transition: opacity 0.25s ease;
 }
@@ -2629,10 +2617,7 @@ section[id="brew-guides"] {
   font-weight: 500;
 }
 
-.customer-search:focus-within i {
-  opacity: 1;
-}
-
+/* TABLE WRAPPER */
 .customer-table-wrapper {
   background: var(--white);
   border-radius: 16px;
@@ -2649,6 +2634,25 @@ section[id="brew-guides"] {
   color: var(--text);
 }
 
+/* Column widths — more balanced & wider for readability */
+.customer-table th:nth-child(1),
+.customer-table td:nth-child(1) {
+  width: 30%;
+}
+.customer-table th:nth-child(2),
+.customer-table td:nth-child(2) {
+  width: 25%;
+}
+.customer-table th:nth-child(3),
+.customer-table td:nth-child(3) {
+  width: 20%;
+}
+.customer-table th:nth-child(4),
+.customer-table td:nth-child(4) {
+  width: 25%;
+}
+
+/* HEADER ROW */
 .customer-table thead {
   background: var(--primary);
   text-transform: uppercase;
@@ -2663,10 +2667,12 @@ section[id="brew-guides"] {
   color: #fff;
 }
 
+/* TABLE BODY */
 .customer-table td {
   padding: 1rem 1.5rem;
   border-bottom: 1px solid #f3f3f3;
   transition: all 0.25s ease;
+  word-wrap: break-word;
 }
 
 .customer-table tbody tr:nth-child(odd) {
@@ -2678,6 +2684,7 @@ section[id="brew-guides"] {
   box-shadow: 0 3px 10px rgba(244, 195, 64, 0.15);
 }
 
+/* CUSTOMER INFO CELL */
 .customer-info {
   display: flex;
   align-items: center;
@@ -2685,8 +2692,8 @@ section[id="brew-guides"] {
 }
 
 .customer-avatar {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -2699,11 +2706,12 @@ section[id="brew-guides"] {
   font-size: 0.95rem;
 }
 
+/* STATUS STYLES */
 .status {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 999px;
   font-weight: 500;
   font-size: 0.8rem;
@@ -2711,7 +2719,7 @@ section[id="brew-guides"] {
   letter-spacing: 0.2px;
   transition: all 0.25s ease;
   white-space: nowrap;
-  margin: auto;
+  justify-content: center;
 }
 
 .status::before {
@@ -2754,63 +2762,164 @@ section[id="brew-guides"] {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 1024px) {
+  .customer-container {
+    padding: 1rem;
+  }
+
+  .customer-table th,
+  .customer-table td {
+    padding: 1rem;
+  }
+}
+
+/* TABLE -> CARD VIEW ON MOBILE */
 @media (max-width: 768px) {
+  .customer-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background: none; /* remove background that can cause white gaps */
+  }
+
   .customer-header {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   .customer-search {
     width: 100%;
   }
+
+  .customer-table,
+  .customer-table thead,
+  .customer-table tbody,
+  .customer-table th,
+  .customer-table td,
+  .customer-table tr {
+    display: block;
+    width: 100%;
+    background: transparent; /* remove background layer that causes white strips */
+  }
+
+  .customer-table thead {
+    display: none;
+  } 
+
+  tr {
+    background-color: #000;
+  }
+
+  .customer-table tr {
+    border: 1.5px solid #e0e0e0; /* stronger border */
+    border-radius: 14px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgb(255, 253, 244); /* subtle warm tone background */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); /* stronger shadow */
+  }
+
+  .customer-table td {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem 0;
+    border: none;
+    text-align: left;
+  }
+
+  .customer-table td::before {
+    display: none;
+    content: none;
+  }
+
+  .customer-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: 0;
+  }
+
+  .customer-table td span,
+  .customer-table td p {
+    margin-left: 0;
+  }
+
+  .customer-title {
+    text-align: center;
+  }
+
+  .customer-table tr:nth-child(even),
+  .customer-table tr:nth-child(odd) {
+    background-color: rgb(255, 253, 244) !important;
+  }
 }
 
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .customer-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .customer-title {
+    font-size: 1.6rem;
+  }
+
+  .status {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+}
+
+
+
 /* =========================
-   CUSTOMER MESSAGES - STRIPED MODERN STYLE
+   CUSTOMER MESSAGES - MODERN RESPONSIVE STYLE
 ========================= */
 
 .messages-container {
   max-width: 1000px;
-  margin: 2rem auto 3rem;
+  width: 100%;
+  margin: 2rem auto;
   padding: 1rem 2rem 2rem;
-  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
+/* HEADER */
 .messages-header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  gap: 0.8rem;
+  text-align: center;
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .messages-title {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.025px;
+  text-align: center;
   margin: 0;
-  flex: 0 1 auto;
-  min-width: 150px;
-  max-width: 70%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .messages-search-wrapper {
-  position: relative;
-  width: 280px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 300px;
   border-radius: 50px;
   padding: 0.5rem 1rem 0.5rem 3rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border: 0.3px solid #999;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
   background: #fff;
+  position: relative;
 }
 
 .messages-search-wrapper i {
@@ -2843,10 +2952,17 @@ section[id="brew-guides"] {
   opacity: 1;
 }
 
+body.customer-page {
+  overflow-x: hidden !important;
+}
+
+/* =========================
+   TABLE WRAPPER & BASE
+========================= */
 .messages-table-wrapper {
   background: var(--white);
   border-radius: 16px;
-  overflow: hidden;
+  overflow-x: hidden;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
@@ -2857,6 +2973,7 @@ section[id="brew-guides"] {
   table-layout: fixed;
   font-size: 0.9rem;
   color: var(--text);
+  word-wrap: break-word;
 }
 
 .messages-table thead {
@@ -2888,21 +3005,25 @@ section[id="brew-guides"] {
   box-shadow: 0 3px 10px rgba(244, 195, 64, 0.15);
 }
 
-/* COLUMN WIDTHS */
+/* =========================
+   COLUMN WIDTHS
+========================= */
 .messages-col-name {
-  width: 30%;
+  width:32%;
 }
 .messages-col-email {
   width: 20%;
 }
 .messages-col-message {
-  width: 35%;
+  width: 30;
 }
 .messages-col-date {
   width: 15%;
 }
 
-/* NAME CELL (AVATAR + TEXT) */
+/* =========================
+   NAME CELL (AVATAR + TEXT)
+========================= */
 .message-info {
   display: flex;
   align-items: center;
@@ -2930,4 +3051,138 @@ section[id="brew-guides"] {
   text-align: center;
   color: #777;
   padding: 1.5rem 0;
+}
+
+/* =========================
+   TABLE RESPONSIVENESS
+========================= */
+@media (max-width: 1024px) {
+  .messages-container {
+    padding: 1rem 1.5rem 2rem;
+  }
+
+  .messages-title {
+    font-size: 1.75rem;
+    max-width: 80%;
+  }
+
+  .messages-table-wrapper {
+    overflow-x: hidden;
+  }
+
+  .messages-table {
+    min-width: 100%;
+    font-size:0.65rem;
+  }
+
+  .messages-table td,
+  .messages-table th {
+    padding: 12px 16px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .message-name-text {
+    font-size: 0.65rem;
+  }
+}
+
+/* =========================
+   MOBILE VIEW AS CARDS
+========================= */
+@media (max-width: 768px) {
+  .messages-container {
+    max-width: 95%;
+    padding: 0.5rem;
+  }
+
+  .messages-table-wrapper {
+    box-shadow: none;
+  }
+  
+  .messages-header {
+    flex-direction: column;
+  }
+
+  .messages-table {
+    display: block;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+  }
+
+  .messages-table thead {
+    display: none; 
+  }
+
+  .messages-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .messages-table tr {
+    display: block;
+    background: #fffdf4;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .messages-table td {
+    display: block; 
+    text-align: left;
+    padding: 0.4rem 0;
+    border: none;
+    font-size: 1rem;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .messages-table td::before {
+    content: none !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .message-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .message-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .message-name-text {
+    font-size: 1rem;
+    word-break: break-word;
+  }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+@media (max-width: 480px) {
+  .messages-title {
+    font-size: 1.4rem;
+  }
+
+  .messages-table td {
+    font-size: 0.9rem;
+  }
+
+  .message-avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .message-name-text {
+    font-size: 0.9rem;
+  }
 }
